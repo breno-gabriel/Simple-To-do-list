@@ -8,6 +8,10 @@ body {
 
   background-color: #F8F9FF;
   margin: 0;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 
 }
 
@@ -15,5 +19,34 @@ h1 {
 
   color: rgba(0, 0, 0, 0.4);
   text-align: center;
+
+}
+
+.menu {
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+}
+
+.menu-filter {
+
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.menu-filter div {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.menu-filter div span {
+
+  font-weight: 700;
 
 }

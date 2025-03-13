@@ -10,6 +10,7 @@ const TaskList = (tasks : taskProps[]) => {
             <TaskCard></TaskCard>
             <TaskCard></TaskCard>
             <TaskCard></TaskCard>
+            <TaskCard></TaskCard>
         </div>
 
     );
