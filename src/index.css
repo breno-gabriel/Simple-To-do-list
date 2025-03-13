@@ -4,5 +4,15 @@
     --picklistButton: #D9D9D9; 
     --taskListBackground: #ECEDF6; 
     --appBackground: #F8F9FF; 
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 
 }
