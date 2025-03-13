@@ -1,0 +1,49 @@
+.taskCard {
+
+    background-color: white;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+    font-weight: 800;
+
+}
+
+.taskCard-left {
+
+    display: flex;
+    gap: 10px;
+
+}
+
+.taskCard-left input {
+
+    width: 25px;
+    cursor: pointer;
+
+}
+
+.taskCard-right__icons {
+
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+    gap: 10px;
+
+} 
+
+.taskCard-right__icons .pencil:hover {
+
+    color: blue;
+    cursor: pointer;
+
+}
+
+.taskCard-right__icons .trash_can:hover {
+
+    color: red;
+    cursor: pointer;
+
+}
