@@ -1,11 +1,13 @@
 .taskContainer {
 
     background-color: #ECEDF6;
-    width: 100%;
-    min-width: 1000px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 15px;
+    padding: 50px 20px 50px 20px;
+    border-radius: 8px;
+    overflow: auto;
+
 }
