@@ -1,0 +1,102 @@
+.todoForms {
+
+    border-color: rgba(0,0,0,0.4);
+    border: solid 1px;
+    border-radius: 8px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-weight: 700;
+    
+}
+
+.todoForms h2 {
+
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px;
+
+
+}
+
+.todoForms form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 80%;
+    margin-bottom: 20px;
+
+}
+
+.todoForms form .todoForms-description {
+
+    width: 90%;
+
+}
+
+.todoForms form .todoForms-description label {
+
+    font-size: 18px;
+    color: rgba(0,0,0,0.4);
+
+}
+
+
+.todoForms form .todoForms-options {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+}
+
+.todoForms form .todoForms-options div label {
+
+    display: block;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 5px;
+
+}
+
+.todoForms form input[type='text'] {
+
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.4);
+
+}
+
+.todoForms form input[type='date'] {
+
+    display: inline-block;
+
+
+}
+
+.todoForms form button {
+
+    display: block;
+    width: 80%;
+
+}
+
+.closeButton {
+
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+
+}

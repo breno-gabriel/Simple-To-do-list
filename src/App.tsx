@@ -2,6 +2,7 @@ import './App.css'
 import Button from './component/Button/Button'
 import DropDownMenu from './component/DropDownMenu/DropDownMenu'
 import TaskList from './component/TaskList/TaskList'
+import TodoForms from './component/TodoForms.tsx/TodoForms'
 
 function App() {
 
@@ -35,7 +36,11 @@ function App() {
 
       <TaskList></TaskList>
 
+      <TodoForms></TodoForms>
+
     </div>
+
+
   )
 }
 

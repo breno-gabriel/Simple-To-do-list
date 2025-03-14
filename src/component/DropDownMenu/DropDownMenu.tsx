@@ -5,13 +5,11 @@ const DropDownMenu = ({options}: DropDownMenuProps) => {
 
     return (
 
-        <form className='DropDownMenu'>
-            <select name="" id="">
+            <select className='DropDownMenu' name="" id="">
                 {options.map((item) => {
                     return <option value="">{item}</option>;
                 })}
             </select>
-        </form>
 
     );
 
