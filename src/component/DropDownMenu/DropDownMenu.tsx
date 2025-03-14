@@ -1,13 +1,17 @@
 import DropDownMenuProps from '../../types/DropDownMenuProps';
 import './DropDownMenu.css'
 
-const DropDownMenu = ({options}: DropDownMenuProps) => {
+
+const DropDownMenu = ({options, register, name}: DropDownMenuProps) => {
 
     return (
 
-            <select className='DropDownMenu' name="" id="">
+            <select className='DropDownMenu' {...(register ? register(name) : {})}>
                 {options.map((item) => {
-                    return <option value="">{item}</option>;
+                    return <option 
+                    value={item}
+                    key={item}
+                    >{item}</option>;
                 })}
             </select>
 

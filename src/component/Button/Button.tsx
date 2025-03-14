@@ -6,7 +6,7 @@ const Button = ({content, handleClick}: ButtonProps) => {
     return (
 
         <>
-            <button className='button'>{content}</button>
+            <button className='button' onClick={handleClick}>{content}</button>
         </>
 
     )
