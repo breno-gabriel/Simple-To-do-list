@@ -1,7 +1,7 @@
 type FormData = {
 
     description: string, 
-    date: Date, 
+    date: string, 
     priority: string 
 
 }

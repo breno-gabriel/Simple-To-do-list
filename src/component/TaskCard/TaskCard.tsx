@@ -1,10 +1,10 @@
-import taskProps from '../../types/TaskProps';
 import './TaskCard.css'
 import { TiPencil } from "react-icons/ti";
 import { FaTrashCan } from "react-icons/fa6";
+import taskProps from '../../types/TaskProps';
 
 
-const TaskCard = () => {
+const TaskCard = (task : taskProps) => {
 
     return (
 
@@ -16,8 +16,8 @@ const TaskCard = () => {
                 
                 <div className='taskCard-left__content'>
 
-                    <div>Descrição tarefa</div>
-                    <div>Alta</div>
+                    <div>{task.description}</div>
+                    <div>{task.priority}</div>
 
                 </div>
 
@@ -33,7 +33,7 @@ const TaskCard = () => {
                 </div>
 
 
-                <div>20/03/2024</div>
+                <div>{task.date}</div>
 
             </div>
 

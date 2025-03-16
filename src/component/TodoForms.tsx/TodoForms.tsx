@@ -2,21 +2,20 @@ import Button from '../Button/Button';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import './TodoForms.css';
 import { IoClose } from "react-icons/io5";
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm, Controller } from 'react-hook-form';
+import FormData from '../../types/formData';
 
-type FormData = {
 
-    description: string, 
-    date: Date, 
-    priority: string 
-
-}
 
 const TodoForms = () => {
 
-    const { register, handleSubmit, formState: {errors} } = useForm<FormData>();
-
-    const onSubmit = (data : FormData) => {
+    const { register, handleSubmit, control } = useForm<FormData>({
+        defaultValues: {
+          description: '', 
+          priority: '', 
+        },
+      });
+    const onSubmit: SubmitHandler<FormData> = (data : FormData) => {
 
         console.log(data);
 
@@ -28,7 +27,7 @@ const TodoForms = () => {
         
             <h2>What the new task?</h2>
 
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 
                 <div className='todoForms-description'>
 
@@ -45,12 +44,23 @@ const TodoForms = () => {
                     <div>
 
                         <label>Priority</label>
-                        <DropDownMenu 
+                        {/* <DropDownMenu 
                         options={["Hight", "Medium","Low"]}
                         register={register}
                         name='priority'
                         >
-                        </DropDownMenu>
+                        </DropDownMenu> */}
+                        <Controller
+                            name="priority"
+                            control={control}
+                            render={({ field }) => (
+                                <DropDownMenu 
+                                    {...field}
+                                    options={["Hight", "Medium","Low"]}
+                                />
+                            )}
+                        />
+                        
 
                     </div>
 
@@ -67,7 +77,7 @@ const TodoForms = () => {
                 </div>
 
 
-                <Button content="Submit" handleClick={handleSubmit(onSubmit)}></Button>
+                <Button content="Submit"></Button>
 
             </form>
 

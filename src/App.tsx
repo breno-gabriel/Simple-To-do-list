@@ -1,10 +1,30 @@
+import { useState } from 'react'
 import './App.css'
 import Button from './component/Button/Button'
 import DropDownMenu from './component/DropDownMenu/DropDownMenu'
 import TaskList from './component/TaskList/TaskList'
 import TodoForms from './component/TodoForms.tsx/TodoForms'
+import taskProps from './types/TaskProps'
+import FormData from './types/formData'
 
 function App() {
+
+  const [tasks, setTasks] = useState<taskProps[]>([]);
+
+  const handleAddTask = (data: FormData) => {
+
+    setTasks([
+      ...tasks, 
+      {
+        id: Math.random(),
+        description: data.description, 
+        date: data.date, 
+        priority: data.priority,
+        completed: false 
+      }
+    ]);
+
+  };
 
   return (
     <div className='app'>
@@ -34,7 +54,7 @@ function App() {
 
       </div>
 
-      <TaskList></TaskList>
+      <TaskList tasks={tasks}></TaskList>
 
       <TodoForms></TodoForms>
 
