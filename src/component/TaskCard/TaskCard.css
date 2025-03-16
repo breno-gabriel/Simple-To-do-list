@@ -11,6 +11,12 @@
 
 }
 
+.completed-task {
+
+    text-decoration: line-through;
+
+}
+
 .taskCard-left {
 
     display: flex;

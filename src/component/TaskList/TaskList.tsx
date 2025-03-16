@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import taskProps from '../../types/Task';
 import TaskCard from '../TaskCard/TaskCard';
 import './TaskList.css';
@@ -17,6 +17,21 @@ const TaskList = ({ tasks, onDelete, setTask }: TaskListProps) => {
 
   const [renderUpdateForms, setRenderUpdateForms] = useState<boolean>(false);
   const [cuurentId, setCurrentId] = useState<number | null>(null);
+  const [completed, setCompleted] = useState<boolean>(false); 
+
+  useEffect(() => {
+
+
+    setTask(tasks.map((task) => {
+      if (task.id === cuurentId) {
+        return { ...task, completed: completed };
+      }
+      return task;
+    }));
+
+    console.log(tasks);
+
+  }, [completed]);
 
   const handleRenderUpdateForms = () => {
     
@@ -26,8 +41,6 @@ const TaskList = ({ tasks, onDelete, setTask }: TaskListProps) => {
   }
 
   const handleUpdateTask = (data: FormData) => {
-
-    console.log(data);
 
     setTask(tasks.map((task) => {
       if (task.id === cuurentId) {
@@ -43,7 +56,7 @@ const TaskList = ({ tasks, onDelete, setTask }: TaskListProps) => {
   return (
     <div className='taskContainer'>
       {tasks.map((task) => (
-        <TaskCard key={task.id} task={task} onDelete={onDelete} setRenderUpdateForms={setRenderUpdateForms} setCurrentId={setCurrentId} />
+        <TaskCard key={task.id} task={task} onDelete={onDelete} setRenderUpdateForms={setRenderUpdateForms} setCurrentId={setCurrentId} tasks={tasks} setTask = {setTask}/>
       ))}
       {renderUpdateForms && <TodoForms title="What you will update ?!" handleOnSubmit={handleUpdateTask} handleRenderForms={handleRenderUpdateForms}></TodoForms>}
     </div>

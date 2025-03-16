@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Button from './component/Button/Button'
 import DropDownMenu from './component/DropDownMenu/DropDownMenu'
@@ -13,7 +13,11 @@ function App() {
   const [tasks, setTasks] = useState<task[]>([]);
   const [renderAddForms, setRenderAddForms] = useState<boolean>(false);
 
+  useEffect(() => {console.log(tasks);
+  }, [tasks]);
+
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
+
 
     setTasks([
       ...tasks, 
