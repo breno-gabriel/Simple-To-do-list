@@ -6,8 +6,13 @@ import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import FormData from '../../types/formData';
 
 
+type FormProps = {
 
-const TodoForms = () => {
+    handleOnSubmit: (data : FormData) => void; 
+
+};
+
+const TodoForms = ({handleOnSubmit} : FormProps) => {
 
     const { register, handleSubmit, control } = useForm<FormData>({
         defaultValues: {
@@ -27,7 +32,7 @@ const TodoForms = () => {
         
             <h2>What the new task?</h2>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(handleOnSubmit)}>
                 
                 <div className='todoForms-description'>
 

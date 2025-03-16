@@ -6,12 +6,13 @@ import TaskList from './component/TaskList/TaskList'
 import TodoForms from './component/TodoForms.tsx/TodoForms'
 import taskProps from './types/TaskProps'
 import FormData from './types/formData'
+import { SubmitHandler } from 'react-hook-form'
 
 function App() {
 
   const [tasks, setTasks] = useState<taskProps[]>([]);
 
-  const handleAddTask = (data: FormData) => {
+  const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
 
     setTasks([
       ...tasks, 
@@ -56,7 +57,7 @@ function App() {
 
       <TaskList tasks={tasks}></TaskList>
 
-      <TodoForms></TodoForms>
+      <TodoForms handleOnSubmit={handleAddTask}></TodoForms>
 
     </div>
 
