@@ -32,6 +32,13 @@
     
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
 .todoForms h2 {
     text-align: center;
     color: rgba(0, 0, 0, 0.4);

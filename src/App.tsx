@@ -12,9 +12,21 @@ function App() {
 
   const [tasks, setTasks] = useState<task[]>([]);
   const [renderAddForms, setRenderAddForms] = useState<boolean>(false);
+  const [priorityFilterValue, setPriorityFilterValue] = useState<string>('Finished');
 
-  useEffect(() => {console.log(tasks);
-  }, [tasks]);
+  useEffect(() => {
+
+    if (priorityFilterValue == "Finished") {
+
+      setTasks(tasks.filter((t) => t.completed == true))
+      
+    }else if (priorityFilterValue == "Unfinished") {
+
+      setTasks(tasks.filter((t) => t.completed == false))
+
+    }
+
+  }, [setPriorityFilterValue]);
 
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
 
