@@ -11,6 +11,7 @@ import task from './types/Task'
 function App() {
 
   const [tasks, setTasks] = useState<task[]>([]);
+  const [renderAddForms, setRenderAddForms] = useState<boolean>(false);
 
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
 
@@ -33,6 +34,12 @@ function App() {
 
   };
 
+  const handleRenderAddTask = () => {
+
+    setRenderAddForms(!renderAddForms); 
+
+  }
+
   return (
     <div className='app'>
 
@@ -40,7 +47,7 @@ function App() {
 
       <div className='menu'>
 
-          <Button content='Add Task'></Button>
+          <Button content='Add Task' handleClick={handleRenderAddTask}></Button>
           <div className='menu-filter'>
 
             <div>
@@ -63,7 +70,9 @@ function App() {
 
       <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
 
-      <TodoForms handleOnSubmit={handleAddTask}></TodoForms>
+      {renderAddForms && <TodoForms title="What the new task ?!" handleOnSubmit={handleAddTask} handleRenderForms={handleRenderAddTask}></TodoForms>}
+
+      {/* <TodoForms title="What the new task ?!" handleOnSubmit={handleAddTask}></TodoForms> */}
 
     </div>
 

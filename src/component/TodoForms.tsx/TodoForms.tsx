@@ -8,11 +8,13 @@ import FormData from '../../types/formData';
 
 type FormProps = {
 
-    handleOnSubmit: (data : FormData) => void; 
+    title: string,
+    handleOnSubmit: (data : FormData) => void,
+    handleRenderForms: () => void;
 
 };
 
-const TodoForms = ({handleOnSubmit} : FormProps) => {
+const TodoForms = ({title, handleOnSubmit, handleRenderForms} : FormProps) => {
 
     const { register, handleSubmit, control } = useForm<FormData>({
         defaultValues: {
@@ -20,17 +22,18 @@ const TodoForms = ({handleOnSubmit} : FormProps) => {
           priority: '', 
         },
       });
-    const onSubmit: SubmitHandler<FormData> = (data : FormData) => {
 
-        console.log(data);
+    // const onSubmit: SubmitHandler<FormData> = (data : FormData) => {
 
-    };
+    //     console.log(data);
+
+    // };
 
     return (
 
         <div  className='todoForms'>
         
-            <h2>What the new task?</h2>
+            <h2>{title}</h2>
 
             <form onSubmit={handleSubmit(handleOnSubmit)}>
                 
@@ -86,9 +89,9 @@ const TodoForms = ({handleOnSubmit} : FormProps) => {
 
             </form>
 
-            <button className='closeButton'>
+            <button className='closeButton' onClick={handleRenderForms}>
 
-                <IoClose />
+                <IoClose/>
 
             </button>
 
