@@ -1,11 +1,11 @@
-type taskProps = {
+type task = {
 
     id: number, 
     description: string, 
     priority: string, 
     date: string, 
-    completed: boolean
+    completed: boolean, 
 
 };
 
-export default taskProps; 
+export default task; 

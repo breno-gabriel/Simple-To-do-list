@@ -4,13 +4,13 @@ import Button from './component/Button/Button'
 import DropDownMenu from './component/DropDownMenu/DropDownMenu'
 import TaskList from './component/TaskList/TaskList'
 import TodoForms from './component/TodoForms.tsx/TodoForms'
-import taskProps from './types/TaskProps'
 import FormData from './types/formData'
 import { SubmitHandler } from 'react-hook-form'
+import task from './types/Task'
 
 function App() {
 
-  const [tasks, setTasks] = useState<taskProps[]>([]);
+  const [tasks, setTasks] = useState<task[]>([]);
 
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
 
@@ -24,6 +24,12 @@ function App() {
         completed: false 
       }
     ]);
+
+  };
+
+  const handleDeleteTask = (taskId : number) => {
+
+    setTasks(tasks.filter((task) => task.id != taskId))
 
   };
 
@@ -55,7 +61,7 @@ function App() {
 
       </div>
 
-      <TaskList tasks={tasks}></TaskList>
+      <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
 
       <TodoForms handleOnSubmit={handleAddTask}></TodoForms>
 

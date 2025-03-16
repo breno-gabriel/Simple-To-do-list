@@ -1,10 +1,17 @@
 import './TaskCard.css'
 import { TiPencil } from "react-icons/ti";
 import { FaTrashCan } from "react-icons/fa6";
-import taskProps from '../../types/TaskProps';
+import task from '../../types/Task';
 
 
-const TaskCard = (task : taskProps) => {
+interface taskProps {
+
+    task: task,
+    onDelete: (id: number) => void 
+
+}
+
+const TaskCard = ({task, onDelete} : taskProps) => {
 
     return (
 
@@ -28,7 +35,7 @@ const TaskCard = (task : taskProps) => {
                 <div className='taskCard-right__icons'>
 
                     <TiPencil className='pencil'/>
-                    <FaTrashCan className='trash_can'/>
+                    <FaTrashCan className='trash_can' onClick={() => onDelete(task.id)}/>
 
                 </div>
 
