@@ -7,11 +7,13 @@ import task from '../../types/Task';
 interface taskProps {
 
     task: task,
-    onDelete: (id: number) => void 
+    onDelete: (id: number) => void,
+    setRenderUpdateForms : React.Dispatch<React.SetStateAction<boolean>> ,
+    setCurrentId: React.Dispatch<React.SetStateAction<number | null>>,
 
 }
 
-const TaskCard = ({task, onDelete} : taskProps) => {
+const TaskCard = ({task, onDelete, setRenderUpdateForms, setCurrentId} : taskProps) => {
 
     return (
 
@@ -34,7 +36,9 @@ const TaskCard = ({task, onDelete} : taskProps) => {
 
                 <div className='taskCard-right__icons'>
 
-                    <TiPencil className='pencil'/>
+                    <TiPencil className='pencil' onClick={() => {
+                        setRenderUpdateForms(true);
+                        setCurrentId(task.id)}}/>
                     <FaTrashCan className='trash_can' onClick={() => onDelete(task.id)}/>
 
                 </div>

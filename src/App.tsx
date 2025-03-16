@@ -26,6 +26,8 @@ function App() {
       }
     ]);
 
+    setRenderAddForms(!renderAddForms);
+
   };
 
   const handleDeleteTask = (taskId : number) => {
@@ -39,6 +41,8 @@ function App() {
     setRenderAddForms(!renderAddForms); 
 
   }
+
+  const handleUpdateTask = () => {};
 
   return (
     <div className='app'>
@@ -68,7 +72,7 @@ function App() {
 
       </div>
 
-      <TaskList tasks={tasks} onDelete={handleDeleteTask}></TaskList>
+      <TaskList tasks={tasks} onDelete={handleDeleteTask} setTask={setTasks}></TaskList>
 
       {renderAddForms && <TodoForms title="What the new task ?!" handleOnSubmit={handleAddTask} handleRenderForms={handleRenderAddTask}></TodoForms>}
 

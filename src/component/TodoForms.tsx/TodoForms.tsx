@@ -19,7 +19,7 @@ const TodoForms = ({title, handleOnSubmit, handleRenderForms} : FormProps) => {
     const { register, handleSubmit, control } = useForm<FormData>({
         defaultValues: {
           description: '', 
-          priority: '', 
+          priority: 'Hight', 
         },
       });
 
