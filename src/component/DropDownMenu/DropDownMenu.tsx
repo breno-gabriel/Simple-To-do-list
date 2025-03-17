@@ -1,27 +1,22 @@
+import React from 'react';
+import './DropDownMenu.css';
 import DropDownMenuProps from '../../types/DropDownMenuProps';
-import './DropDownMenu.css'
 
-
-const DropDownMenu = ({options, value, onChange, onBlur}: DropDownMenuProps) => {
-
+const DropDownMenu = ({ options, value, onChange, onBlur } : DropDownMenuProps) => {
     return (
-
-            <select 
+        <select
             className='DropDownMenu'
             value={value}
             onChange={(e) => onChange && onChange(e.target.value)}
-            onBlur={onBlur}>
-                {options.map((item) => {
-                    return <option 
-                    value={item}
-                    key={item}
-                    >{item}</option>;
-                })}
-            </select>
-
+            onBlur={onBlur}
+        >
+            {options.map((item) => (
+                <option value={item} key={item}>
+                    {item}
+                </option>
+            ))}
+        </select>
     );
-
 };
 
-
-export default DropDownMenu; 
+export default DropDownMenu;

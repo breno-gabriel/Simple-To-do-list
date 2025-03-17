@@ -12,7 +12,6 @@ function App() {
 
   const [tasks, setTasks] = useState<task[]>(JSON.parse(localStorage.getItem("tasks") || '[]'));
   const [renderAddForms, setRenderAddForms] = useState<boolean>(false);
-  const [priorityFilterValue, setPriorityFilterValue] = useState<string>('All');
 
   useEffect(() => {
 
@@ -20,19 +19,6 @@ function App() {
 
   }, [tasks]);
 
-  useEffect(() => {
-
-    if (priorityFilterValue == "Finished") {
-
-      setTasks(tasks.filter((t) => t.completed == true))
-      
-    }else if (priorityFilterValue == "Unfinished") {
-
-      setTasks(tasks.filter((t) => t.completed == false))
-
-    }
-
-  }, [setPriorityFilterValue]);
 
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
 
@@ -74,7 +60,7 @@ function App() {
           <Button content='Add Task' handleClick={handleRenderAddTask}></Button>
           <div className='menu-filter'>
 
-            <div>
+            {/* <div>
 
               <span>Filter</span>
               <DropDownMenu options={["All", "Finished", "Unfinished"]}></DropDownMenu>
@@ -86,7 +72,7 @@ function App() {
               <span>Sort</span>
               <DropDownMenu options={["Date", "Priority"]}></DropDownMenu>
 
-            </div>
+            </div> */}
 
           </div>
 
