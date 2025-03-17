@@ -1,5 +1,3 @@
-import { UseFormRegister } from "react-hook-form";
-
 type DropDownMenuProps = {
 
     options: string[],

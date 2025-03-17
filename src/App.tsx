@@ -10,9 +10,15 @@ import task from './types/Task'
 
 function App() {
 
-  const [tasks, setTasks] = useState<task[]>([]);
+  const [tasks, setTasks] = useState<task[]>(JSON.parse(localStorage.getItem("tasks") || '[]'));
   const [renderAddForms, setRenderAddForms] = useState<boolean>(false);
-  const [priorityFilterValue, setPriorityFilterValue] = useState<string>('Finished');
+  const [priorityFilterValue, setPriorityFilterValue] = useState<string>('All');
+
+  useEffect(() => {
+
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+
+  }, [tasks]);
 
   useEffect(() => {
 
@@ -29,7 +35,6 @@ function App() {
   }, [setPriorityFilterValue]);
 
   const handleAddTask: SubmitHandler<FormData> = (data: FormData) => {
-
 
     setTasks([
       ...tasks, 
@@ -58,7 +63,6 @@ function App() {
 
   }
 
-  const handleUpdateTask = () => {};
 
   return (
     <div className='app'>
