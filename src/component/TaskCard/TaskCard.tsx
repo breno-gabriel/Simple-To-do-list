@@ -3,6 +3,7 @@ import { TiPencil } from "react-icons/ti";
 import { FaTrashCan } from "react-icons/fa6";
 import task from '../../types/Task';
 import { useState } from 'react';
+import { FaCircle } from "react-icons/fa6";
 
 
 interface taskProps {
@@ -41,7 +42,10 @@ const TaskCard = ({task, onDelete, setRenderUpdateForms, setCurrentId, tasks, se
                 <div className='taskCard-left__content'>
 
                     <div>{task.description}</div>
-                    <div>{task.priority}</div>
+                    <div>
+                        <FaCircle className={ task.priority == 'High' ? 'red' : task.priority == 'Medium' ? 'yellow' : task.priority == 'Low' ? 'green' : ''}/>
+                        <div style={{display: 'inline-block', marginLeft: '10px'}}>{task.priority}</div>
+                    </div>
 
                 </div>
 

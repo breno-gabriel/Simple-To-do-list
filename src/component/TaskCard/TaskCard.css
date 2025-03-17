@@ -17,6 +17,30 @@
 
 }
 
+.circle {
+
+    display: inline-block;
+
+}
+
+.red {
+
+    color: red;
+
+}
+
+.yellow {
+
+color: yellow;
+
+}
+
+.green {
+
+color: green;
+
+}
+
 .taskCard-left {
 
     display: flex;

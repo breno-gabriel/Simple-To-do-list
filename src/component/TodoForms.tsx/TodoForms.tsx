@@ -20,7 +20,7 @@ const TodoForms = ({ title, handleOnSubmit, handleRenderForms }: FormProps) => {
     } = useForm<FormData>({
         defaultValues: {
             description: '',
-            priority: 'Hight',
+            priority: 'High',
         },
     });
 
@@ -49,7 +49,7 @@ const TodoForms = ({ title, handleOnSubmit, handleRenderForms }: FormProps) => {
                             render={({ field }) => (
                                 <DropDownMenu
                                     {...field}
-                                    options={["Hight", "Medium", "Low"]}
+                                    options={["High", "Medium", "Low"]}
                                 />
                             )}
                         />
